@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mena</title>
+</head>
+<body>
+
+
+    <script src="script.js"> </script>
+    <script>
+        const respuesta = prompt("Elija que ejercicio desea ver. ")
+        switch(respuesta)
+        {
+            case "1":
+                imprimirNombre();
+                break;
+            case "2":
+                sumaDosVariables();
+                break;
+            case "3":
+                imprimirPI();
+                break;
+            case "4":
+                const nombre = prompt("Ingrese un nombre. ");
+                saludar(nombre);
+                break;
+            case "5":
+                const numero = prompt("Ingrese un numero");
+                var retorno = esPar(numero);
+                if(retorno == true)
+                {
+                    console.log("Es par xd.");
+                }
+                else
+                {
+                    console.log("Es impar.");
+                }
+                break;
+        }
+    </script>
+</body>
+</html>
