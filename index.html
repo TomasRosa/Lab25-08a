@@ -1,45 +1,382 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mena</title>
-</head>
-<body>
-
-
-    <script src="script.js"> </script>
+  </head>
+  <body>
+    <script src="script.js"></script>
     <script>
-        const respuesta = prompt("Elija que ejercicio desea ver. ")
-        switch(respuesta)
-        {
-            case "1":
-                imprimirNombre();
+      const respuesta = prompt("Elija que ejercicio desea ver. ");
+      switch (respuesta) {
+        case "1":
+          imprimirNombre();
+          break;
+        case "2":
+          sumaDosVariables();
+          break;
+        case "3":
+          imprimirPI();
+          break;
+        case "4":
+          let nombre = prompt("Ingrese un nombre. ");
+          saludar(nombre);
+          break;
+        case "5":
+          let numero = prompt("Ingrese un numero");
+          var retorno = esPar(numero);
+          if (retorno == true) {
+            console.log("Es par xd.");
+          } else {
+            console.log("Es impar.");
+          }
+          break;
+        case "6":
+          let arrayNumeros = [1, 2, 2, 2];
+          let suma = sumarArray(arrayNumeros);
+          console.log("Resultado de la suma: " + suma);
+          break;
+        case "7":
+          crearPersona();
+          break;
+        case "8":
+          let nombreProducto = prompt("Ingrese el nombre del producto");
+          let precioProducto = prompt("Ingrese el precio del producto");
+          let stockProducto = prompt("Ingrese el stock del producto");
+
+          let p1 = new Producto(nombreProducto, precioProducto, stockProducto);
+          console.log(
+            "Producto: " + p1.nombre + " " + p1.precio + " " + p1.stock
+          );
+          break;
+        case "9":
+          let titulo = prompt("Ingrese el titulo de la pelicula. ");
+          let director = prompt("Ingrese el director de la pelicula. ");
+          let anio = prompt("Ingrese el anio en el que salio la pelicula. ");
+
+          let peli = new Pelicula(titulo, director, anio);
+          console.log(
+            "Pelicula: " + peli.titulo + " " + peli.director + " " + peli.anio
+          );
+          break;
+        /*Punto 10 y 11*/
+        case "10":
+          let arrayFrutas = [
+            "Manzana",
+            "Naranja",
+            "Banana",
+            "Ciruela",
+            "Damasco",
+          ];
+          console.log("Array completo: " + arrayFrutas);
+          console.log("Tercer elemento del arreglo: " + arrayFrutas[2]);
+          let nuevaFruta = prompt("Ingrese una nueva fruta al array. ");
+          arrayFrutas[arrayFrutas.length + 1] = nuevaFruta;
+          console.log("Arreglo actualizado: " + arrayFrutas);
+        case "11":
+          let arrayEnteros = [1, 4, 6, 8, 7, 2, 3];
+          arrayEnteros = filtrarPares(arrayEnteros);
+          console.log("Arreglo sin los impares: " + arrayEnteros);
+        case "12": //Punto 13 y 14.. Preguntar.
+          let nombrecito = prompt("Ingrese el nombre de la persona. ");
+          let edad = prompt("Ingrese la edad de la persona. ");
+          let persona = crearPersona(nombrecito, edad);
+          console.log("Punto 14. ");
+          let info = obtenerInfo(persona);
+          console.log(info);
+          break;
+        case "13":
+          let arrayOriginal = [1, 2, 3, 4];
+          let arrayDuplicado = duplicarArray(arrayOriginal);
+          console.log("Array duplicado: " + arrayDuplicado);
+          break;
+        case "14":
+          let cadena = prompt("Ingrese una cadena, se mostrara invertida. ");
+          let cadenaInvertida = invertirCadena(cadena);
+          console.log("Cadena inevrtida: " + cadenaInvertida);
+          break;
+        case "15":
+          let arregloPalabras = [
+            "Arbol",
+            "Manzanilla",
+            "Espejismo",
+            "Te",
+            "Lavanda",
+          ];
+          console.log("Cadenas del arreglo: " + arregloPalabras);
+          let longitud = prompt(
+            "Ingrese una longitud. Se generara un nuevo arreglo con las palabras que tengan mayor longitud que la ingresada."
+          );
+          let arregloNuevo = filtrarPorLongitud(arregloPalabras, longitud);
+          console.log(
+            "Arreglo nuevo con las palabras mayores a la longitud ingresada: " +
+              arregloNuevo
+          );
+          break;
+        case "16": //preguntar. punto 18 y 19 y 20 y 25 es este case.
+          let e1 = new Estudiante("Tomas", 19, 7.56);
+          let e2 = new Estudiante("Franquito", 20, 8.92);
+          let e3 = new Estudiante("Lauti", 22, 7.45);
+          let arrayEstudiantes = [e1, e2, e3];
+          console.log("Info estudiantes:");
+          console.log(
+            "Estudiante 1: " +
+              "Nombre: " +
+              arrayEstudiantes[0].nombre +
+              " " +
+              "Edad: " +
+              arrayEstudiantes[0].edad +
+              " " +
+              "Promedio: " +
+              " " +
+              arrayEstudiantes[0].promedio
+          );
+          console.log(
+            "Estudiante 2: " +
+              "Nombre: " +
+              arrayEstudiantes[1].nombre +
+              " " +
+              "Edad: " +
+              arrayEstudiantes[1].edad +
+              " " +
+              "Promedio: " +
+              " " +
+              arrayEstudiantes[1].promedio
+          );
+          console.log(
+            "Estudiante 3: " +
+              "Nombre: " +
+              arrayEstudiantes[2].nombre +
+              " " +
+              "Edad: " +
+              arrayEstudiantes[2].edad +
+              " " +
+              "Promedio: " +
+              " " +
+              arrayEstudiantes[2].promedio
+          );
+
+          let nombre1 = prompt(
+            "Ingrese el nombre de un estudiante. Se retornara junto a toda su informacion en caso de que exista."
+          );
+          let estudiante = buscarEstudiante(arrayEstudiantes, nombre1);
+
+          if (estudiante == null) {
+            console.log("El estudiante ingresado no existe. ");
+          } else {
+            console.log("Estudiante encontrado!");
+            console.log(
+              "Nombre estudiante: " +
+                estudiante.nombre +
+                " " +
+                "Edad estudiante: " +
+                estudiante.edad +
+                " " +
+                "Promedio estudiante: " +
+                estudiante.promedio
+            );
+          }
+          console.log("Promedio total de los estudiantes: ");
+          let promedio = promedioClase(arrayEstudiantes);
+          console.log(promedio);
+
+          console.log("Eliminar estudiante.");
+          let nombreEliminar = prompt(
+            "Ingrese el nombre del estudiante que deseas eliminar. "
+          );
+          let arregloSinEstudiante = [];
+          try {
+            arregloSinEstudiante = eliminarEstudiante(
+              arrayEstudiantes,
+              nombreEliminar
+            );
+            console.log("Estudiante eliminado exitosamente. ");
+            console.log("Arreglo con el estudiante eliminado: ");
+            for (let i = 0; i < arregloSinEstudiante.length; i++) {
+              console.log(
+                "Nombre estudiante: " + arregloSinEstudiante[i].nombre
+              );
+              console.log("Edad estudiante: " + arregloSinEstudiante[i].edad);
+              console.log(
+                "Promedio estudiante: " + arregloSinEstudiante[i].promedio
+              );
+            }
+          } catch (error) {
+            console.error(error.message);
+          }
+          break;
+        case "17":
+          let coche1 = new Coche("Chevrolet", "Agile", 2012);
+          let coche2 = new Coche("Fiat", 1, 1998);
+
+          console.log("Datos de los coches: ");
+          console.log(
+            "Coche 1: " +
+              "Marca: " +
+              coche1.marca +
+              " Modelo: " +
+              coche1.modelo +
+              " Anio: " +
+              coche1.anio
+          );
+          coche1.arrancar();
+          coche1.detener();
+          console.log(
+            "Coche 2: " +
+              "Marca: " +
+              coche2.marca +
+              " Modelo: " +
+              coche2.modelo +
+              " Anio: " +
+              coche2.anio
+          );
+          coche2.arrancar();
+          coche2.detener();
+        case "18":
+          let personita = new PersonaIII("Tomas", 22);
+          personita.saludar();
+        case "19": ///Preguntar. Aca hay punto 23 y 26.
+          let producto1 = new Producto("Camiseta de Futbol", 25000);
+          let producto2 = new Producto("Botines", 32000);
+          let carrito = new Carrito();
+
+          carrito.agregarProductoCarrito(producto1);
+          carrito.agregarProductoCarrito(producto2);
+
+          console.log("Elementos del carrito. ");
+          console.log(carrito.productos[0].nombre);
+          console.log(carrito.productos[1].nombre);
+
+          precioTotal = totalCarrito(carrito.productos);
+          console.log("Precio total de los productos: " + precioTotal);
+          break;
+        case "20": ///Preguntar por que no puedo poner mismo nombre a las variales dentro de distintos cases.
+          arrayNumeritos = [5, 2, 9, 3, 1, 7, 4];
+          console.log("Array antes de ser ordenado: " + arrayNumeritos);
+          arrayOrdenado = ordenarNumeros(arrayNumeritos);
+          console.log("Array luego de ser ordenados: " + arrayOrdenado);
+        case "21":
+          let objetoCalculadora = crearCalculadora();
+          resultadoS = 0;
+          resultadoR = 0;
+          resultadoD = 0;
+          resultadoM = 0;
+
+          let seguir;
+          do {
+            let opcionCalculadora = prompt(
+              "Ingrese s si desea sumar, r si desea restar, m si desea multiplicar, d si desea dividir"
+            );
+            switch (opcionCalculadora) {
+              case "s":
+                console.log("Usted ha elegido la funcion de sumar. ");
+                let n1 = parseInt(prompt("Ingrese el primer numero: "));
+                let n2 = parseInt(prompt("Ingrese el segundo numero: "));
+                resultadoS = objetoCalculadora.sumar(n1, n2);
+                console.log("El resultado de la operacion es: " + resultadoS);
                 break;
-            case "2":
-                sumaDosVariables();
+              case "r":
+                console.log("Usted ha elegido la funcion de restar. ");
+                let n1r = parseInt(prompt("Ingrese el primer numero: "));
+                let n2r = parseInt(prompt("Ingrese el segundo numero: "));
+                resultadoR = objetoCalculadora.restar(n1r, n2r);
+                console.log("El resultado de la operacion es: " + resultadoR);
                 break;
-            case "3":
-                imprimirPI();
+              case "m":
+                console.log("Usted ha elegido la funcion de multiplicar. ");
+                let n1m = parseInt(prompt("Ingrese el primer numero: "));
+                let n2m = parseInt(prompt("Ingrese el segundo numero: "));
+                resultadoM = objetoCalculadora.multiplicar(n1m, n2m);
+                console.log("El resultado de la operacion es: " + resultadoM);
                 break;
-            case "4":
-                const nombre = prompt("Ingrese un nombre. ");
-                saludar(nombre);
-                break;
-            case "5":
-                const numero = prompt("Ingrese un numero");
-                var retorno = esPar(numero);
-                if(retorno == true)
+              case "d":
+                console.log("Usted ha elegido la funcion de dividir. ");
+                let n1d = parseFloat(prompt("Ingrese el primer numero: "));
+                let n2d = parseFloat(prompt("Ingrese el segundo numero: "));
+                try 
                 {
-                    console.log("Es par xd.");
-                }
-                else
+                  resultadoD = objetoCalculadora.dividir(n1d, n2d);
+                  console.log("El resultado de la operacion es: " + resultadoD);
+                } catch (error) 
                 {
-                    console.log("Es impar.");
+                  console.log(error.message);
                 }
                 break;
-        }
+                seguir = prompt(
+                  "Desea seguir haciendo operaciones? s/n. "
+                ).toLowerCase(); // Convertir a minúsculas
+            }
+          } while (seguir === "s");
+          break;
+        case "22":
+          let cuentaBancaria = new crearCuentaBancaria();
+          let seguirB;
+          do
+           {
+            let opcionCuentaBancaria = prompt(
+              "Ingrese v si desea ver el saldo, r si desea retirar dinero de su cuenta, y d si desea depositar."
+            );
+            switch (opcionCuentaBancaria) 
+            {
+              case "v":
+                cuentaBancaria.saldo();
+                break;
+              case "r":
+                try {
+                  let dineroARetirar = parseInt(prompt("Ingrese la cantidad de dinero a retirar. "));
+                  cuentaBancaria.retirar(dineroARetirar);
+                } catch (error) {
+                  console.log(error.message);
+                }
+                break;
+              case "d":
+                let dineroADepositar = parseInt(prompt("Ingrese la cantidad de dinero a depositar. "));
+                cuentaBancaria.depositar(dineroADepositar);
+            }
+            seguirB = prompt("Desea seguir realizado operaciones bancarias? s/n. ");
+          } while (seguirB === "s");
+          break;
+          case "23":
+          let l1 = new Libro("Caperucita Roja","Lauti Ruiz",226);
+          let detalles = l1.detalles();
+          break;
+          case"24":
+          let listaDeTareas = crearListaDeTareas();
+          let seguirT;
+          do
+          {
+            let opcionListaDeTareas = prompt("Ingrese 1 si desea agregar una tarea, 2 si desea marcar una tarea como completada, 3 si desea ver las tareas pendientes, 4 si desea ver las tareas completadas.");
+            switch(opcionListaDeTareas)
+            {
+              case "1":
+                let tareaAAgregar = prompt("Ingrese la tarea a agregar");
+                listaDeTareas.agregarTareas(tareaAAgregar);
+                break;
+              case "2":
+                let tareaAMarcarComoCompletada = prompt("Ingrese la tarea que desea marcar como completada. La tarea debe haber sido ingresada antes como pendiente.");
+                try
+                {
+                  listaDeTareas.marcarTareasComoCompletadas(tareaAMarcarComoCompletada);
+                }
+                catch(error)
+                {
+                  console.log(error.message);
+                }
+                break;
+              case "3":
+                console.log("TAREAS PENDIENTES...")
+                listaDeTareas.verTareasPendientes();
+                break;
+              case "4":
+                console.log("TAREAS COMPLETADAS...")
+                listaDeTareas.verTareasCompletadas();
+                break;
+            }
+            seguirT = prompt("Desea seguir realizado operaciones bancarias? s/n. ");
+          }while(seguirT ==='s');
+      }
     </script>
-</body>
+  </body>
 </html>
