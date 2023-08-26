@@ -44,8 +44,9 @@ function crearPersona ()
     let p1 = new Persona("Tomas" ,19, "Programador");
     let p2 = new Persona ("Franquito" ,19, "Ludopata");
 
-    console.log("Persona 1:" + p1.nombre + " " + p1.edad + " " + p1.profesion);
-    console.log("Persona 2:" + p2.nombre + " " + p2.edad + " " + p2.profesion);
+    console.log("Nombre: " + p2.nombre + " " + " Edad:" + p2.edad + " " + "Trabajo: " + " " + p2.profesion);
+    console.log("Nombre: " + p1.nombre + " " + " Edad:" + p1.edad + " " + "Trabajo: " + " " + p1.profesion);
+    console.log("Denrtro de crear persona");
 }
 function Persona (nombre,edad,profesion)
 {
