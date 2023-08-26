@@ -39,9 +39,7 @@
           console.log("Resultado de la suma: " + suma);
           break;
         case "7":
-          console.log("Antes de entrar a crear persona. ");
           crearPersona();
-          console.log("Luego de entrar a crear persona. ");
           break;
         case "8":
           let nombreProducto = prompt("Ingrese el nombre del producto");
@@ -84,7 +82,7 @@
         case "12": //Punto 13 y 14.. Preguntar.
           let nombrecito = prompt("Ingrese el nombre de la persona. ");
           let edad = prompt("Ingrese la edad de la persona. ");
-          let persona = crearPersona(nombrecito, edad);
+          let persona = crearPersona2(nombrecito, edad);
           console.log("Punto 14. ");
           let info = obtenerInfo(persona);
           console.log(info);

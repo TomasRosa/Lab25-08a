@@ -39,15 +39,13 @@ function sumarArray(arrayNumeros)
     }
     return suma;
 }
-function crearPersona () ///PREGUNTAR A NAHUsEasdasd
+function crearPersona () 
 {
     let p1 = new Persona("Tomas" ,19, "Programador");
     let p2 = new Persona ("Franquito" ,19, "Ludopata");
 
-    console.log("Denrtrsdsdo de crear persona");
-    console.log("Nombre: " + p2.nombre + " " + " Edad:" + p2.edad + " " + "Trabajo: " + " " + p2.profesion);
-    console.log("Nombre: " + p1.nombre + " " + " Edad:" + p1.edad + " " + "Trabajo: " + " " + p1.profesion);
-    console.log("Denrtro de crear persona");
+    console.log("Nombree: " + p2.nombre + " " + " Edad:" + p2.edad + " " + "Trabajo: " + " " + p2.profesion);
+    console.log("Nombree: " + p1.nombre + " " + " Edad:" + p1.edad + " " + "Trabajo: " + " " + p1.profesion);
 }
 function Persona (nombre,edad,profesion)
 {
@@ -78,7 +76,7 @@ function filtrarPares (arrayNumeros)
     }
     return arrayNumeros;
 }
-function crearPersona (nombre,edad) //Preguntar si esta bien.
+function crearPersona2 (nombre,edad) //Preguntar si esta bien.
 {
     let persona = new PersonaII(nombre,edad);
     return persona;
