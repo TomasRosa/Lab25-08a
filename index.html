@@ -293,89 +293,92 @@
                 break;
               case "d":
                 console.log("Usted ha elegido la funcion de dividir. ");
-                let n1d = parseFloat(prompt("Ingrese el primer numero: "));
-                let n2d = parseFloat(prompt("Ingrese el segundo numero: "));
-                try 
-                {
+                let n1d = parseFloat(prompt("Ingrese el primer numeroo: "));
+                let n2d = parseFloat(prompt("Ingrese el segundo numeroo: "));
+                try {
                   resultadoD = objetoCalculadora.dividir(n1d, n2d);
                   console.log("El resultado de la operacion es: " + resultadoD);
-                } catch (error) 
-                {
+                } catch (error) {
                   console.log(error.message);
                 }
                 break;
-                seguir = prompt(
-                  "Desea seguir haciendo operaciones? s/n. "
-                ).toLowerCase(); // Convertir a minúsculas
             }
+            seguir = prompt("Desea seguir haciendo operaciones? s/n. ").toLowerCase(); // Convertir a minúsculas
           } while (seguir === "s");
           break;
         case "22":
           let cuentaBancaria = new crearCuentaBancaria();
           let seguirB;
-          do
-           {
+          do {
             let opcionCuentaBancaria = prompt(
               "Ingrese v si desea ver el saldo, r si desea retirar dinero de su cuenta, y d si desea depositar."
             );
-            switch (opcionCuentaBancaria) 
-            {
+            switch (opcionCuentaBancaria) {
               case "v":
                 cuentaBancaria.saldo();
                 break;
               case "r":
                 try {
-                  let dineroARetirar = parseInt(prompt("Ingrese la cantidad de dinero a retirar. "));
+                  let dineroARetirar = parseInt(
+                    prompt("Ingrese la cantidad de dinero a retirar. ")
+                  );
                   cuentaBancaria.retirar(dineroARetirar);
                 } catch (error) {
                   console.log(error.message);
                 }
                 break;
               case "d":
-                let dineroADepositar = parseInt(prompt("Ingrese la cantidad de dinero a depositar. "));
+                let dineroADepositar = parseInt(
+                  prompt("Ingrese la cantidad de dinero a depositar. ")
+                );
                 cuentaBancaria.depositar(dineroADepositar);
             }
-            seguirB = prompt("Desea seguir realizado operaciones bancarias? s/n. ");
+            seguirB = prompt(
+              "Desea seguir realizado operaciones bancarias? s/n. "
+            );
           } while (seguirB === "s");
           break;
-          case "23":
-          let l1 = new Libro("Caperucita Roja","Lauti Ruiz",226);
+        case "23":
+          let l1 = new Libro("Caperucita Roja", "Lauti Ruiz", 226);
           let detalles = l1.detalles();
           break;
-          case"24":
+        case "24":
           let listaDeTareas = crearListaDeTareas();
           let seguirT;
-          do
-          {
-            let opcionListaDeTareas = prompt("Ingrese 1 si desea agregar una tarea, 2 si desea marcar una tarea como completada, 3 si desea ver las tareas pendientes, 4 si desea ver las tareas completadas.");
-            switch(opcionListaDeTareas)
-            {
+          do {
+            let opcionListaDeTareas = prompt(
+              "Ingrese 1 si desea agregar una tarea, 2 si desea marcar una tarea como completada, 3 si desea ver las tareas pendientes, 4 si desea ver las tareas completadas."
+            );
+            switch (opcionListaDeTareas) {
               case "1":
                 let tareaAAgregar = prompt("Ingrese la tarea a agregar");
                 listaDeTareas.agregarTareas(tareaAAgregar);
                 break;
               case "2":
-                let tareaAMarcarComoCompletada = prompt("Ingrese la tarea que desea marcar como completada. La tarea debe haber sido ingresada antes como pendiente.");
-                try
-                {
-                  listaDeTareas.marcarTareasComoCompletadas(tareaAMarcarComoCompletada);
-                }
-                catch(error)
-                {
+                let tareaAMarcarComoCompletada = prompt(
+                  "Ingrese la tarea que desea marcar como completada. La tarea debe haber sido ingresada antes como pendiente."
+                );
+                try {
+                  listaDeTareas.marcarTareasComoCompletadas(
+                    tareaAMarcarComoCompletada
+                  );
+                } catch (error) {
                   console.log(error.message);
                 }
                 break;
               case "3":
-                console.log("TAREAS PENDIENTES...")
+                console.log("TAREAS PENDIENTES...");
                 listaDeTareas.verTareasPendientes();
                 break;
               case "4":
-                console.log("TAREAS COMPLETADAS...")
+                console.log("TAREAS COMPLETADAS...");
                 listaDeTareas.verTareasCompletadas();
                 break;
             }
-            seguirT = prompt("Desea seguir realizado operaciones bancarias? s/n. ");
-          }while(seguirT ==='s');
+            seguirT = prompt(
+              "Desea seguir realizado operaciones bancarias? s/n. "
+            );
+          } while (seguirT === "s");
       }
     </script>
   </body>
